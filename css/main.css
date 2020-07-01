@@ -10,10 +10,10 @@
   --fw-normal: 400;
   --fw-semi: 500;
   --fw-bold: 700;
-  --fs-h1: 1.25rem;
-  --fs-h2: 1.75rem;
+  --fs-h1: 1.5rem;
+  --fs-h2: 2.25rem;
   --fs-body: 1rem;
-  --fs-xl: 4rem;
+  --fs-xl: 4.5rem;
   --clr-light: #fff;
   --clr-gray: #989898;
   --clr-dark: #444;
@@ -21,6 +21,7 @@
   --clr-accent-dark: #912d06;
 }
 
+/* boton de days weather , wind direction p*/
 .sr-only:not(:focus):not(:active) {
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
@@ -42,11 +43,13 @@ body {
   background-position: center;
   color: var(--clr-light);
   height: 100vh;
+  overflow: hidden;
 }
 
+/* cuadro */
 .mars-current-weather {
   background: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
+  padding: 2em;
   max-width: 1000px;
   margin: 4em 0 0 4em;
   display: -ms-grid;
@@ -70,6 +73,7 @@ a:hover {
   color: var(--clr-accent-dark);
 }
 
+/* info del cuadro  */
 .main-title {
   font-size: var(--fs-h1);
   font-weight: var(--fw-light);
@@ -181,9 +185,236 @@ a:hover {
   transition: transform 500ms ease, -webkit-transform 500ms ease;
 }
 
-.unit-toggle {
+/* boton de unidades e input */
+.unit {
   -ms-grid-column: 3;
   -ms-grid-column-span: 1;
   grid-column: 3/4;
+  place-self: end;
+  color: var(--clr-light);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: .7;
+  -webkit-transition: opacity 275ms linear;
+  transition: opacity 275ms linear;
+}
+
+.unit input {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.unit:hover {
+  opacity: 1;
+}
+
+.unit label {
+  cursor: pointer;
+}
+
+.unit__toggle {
+  cursor: pointer;
+  width: 4em;
+  border: 2px solid var(--clr-light);
+  background: transparent;
+  padding: 0;
+  border-radius: 100vmax;
+  margin: 0 1em;
+}
+
+.unit__toggle::after {
+  content: '';
+  display: block;
+  background: var(--clr-light);
+  border-radius: 50%;
+  height: 1rem;
+  margin: 3px;
+  margin-left: auto;
+  width: 1rem;
+}
+
+:checked ~ .unit__toggle::after {
+  margin-left: 3px;
+}
+
+/* parte de abajo previous weather */
+.previous-weather {
+  background: var(--clr-light);
+  color: var(--clr-dark);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  -webkit-transform: translateY(60%);
+          transform: translateY(60%);
+  -webkit-transition: -webkit-transform 350ms ease;
+  transition: -webkit-transform 350ms ease;
+  transition: transform 350ms ease;
+  transition: transform 350ms ease, -webkit-transform 350ms ease;
+  padding: 2rem;
+}
+
+.previous-days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.previous-weather__title {
+  text-align: center;
+}
+
+/* toggle btn to show  */
+.show-previous-weather {
+  position: absolute;
+  background: var(--clr-light);
+  left: 50%;
+  width: 10rem;
+  -webkit-transform: translate(-50%, calc(-100% - 2rem));
+          transform: translate(-50%, calc(-100% - 2rem));
+  text-align: center;
+  font-size: var(--fs-h2);
+  line-height: 1;
+  -webkit-clip-path: polygon(50% 0, 0 100%, 100% 100%);
+          clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  cursor: pointer;
+  color: var(--clr-gray);
+  border: 0;
+  font-family: inherit;
+}
+
+.show-previous-weather:hover, .show-previous-weather:focus {
+  color: var(--clr-dark);
+  outline-color: var(--clr-light);
+}
+
+.show-previous-weather span {
+  display: block;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: -webkit-transform 300ms ease;
+  transition: transform 300ms ease;
+  transition: transform 300ms ease, -webkit-transform 300ms ease;
+}
+
+.previous-day {
+  opacity: 0;
+}
+
+.previous-day > * {
+  margin: 0;
+}
+
+.previous-day__date {
+  font-size: .9rem;
+  color: var(--clr-gray);
+}
+
+.previous-day__more-info {
+  cursor: pointer;
+  border: 0;
+  border-radius: 100vmax;
+  background: var(--clr-dark);
+  color: var(--clr-light);
+  text-transform: uppercase;
+  padding: .3em 1em;
+  margin-top: 1em;
+}
+
+.previous-day__more-info:hover {
+  background: var(--clr-gray);
+}
+
+/* opened */
+.show-weather.previous-weather {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.show-weather.previous-weather .show-previous-weather span {
+  display: block;
+  -webkit-transform: rotate(180deg) translateY(-6px);
+          transform: rotate(180deg) translateY(-6px);
+}
+
+.show-weather.previous-weather .previous-weather__title,
+.show-weather.previous-weather .previous-day {
+  -webkit-animation: slideUpIn 750ms forwards;
+          animation: slideUpIn 750ms forwards;
+}
+
+.show-weather.previous-weather .previous-weather__title {
+  text-align: left;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(1) {
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(2) {
+  -webkit-animation-delay: 125ms;
+          animation-delay: 125ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(3) {
+  -webkit-animation-delay: 150ms;
+          animation-delay: 150ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(4) {
+  -webkit-animation-delay: 175ms;
+          animation-delay: 175ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(5) {
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(6) {
+  -webkit-animation-delay: 225ms;
+          animation-delay: 225ms;
+}
+
+.show-weather.previous-weather .previous-day:nth-child(7) {
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
+}
+
+@-webkit-keyframes slideUpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes slideUpIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 /*# sourceMappingURL=main.css.map */

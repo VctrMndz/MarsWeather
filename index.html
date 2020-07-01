@@ -11,7 +11,7 @@
   <!--  Styles  -->
   <link rel="stylesheet" href="css/main.css">
 <!-- Scripts -->
-  <script src="scripts/index.js" defer></script>
+  <script src="index.js" defer></script>
 </head>
 
 <body>
@@ -69,6 +69,7 @@
        <!-- when unit__toggle is clicked
             checkbox needs to change -->
        <button class="unit__toggle" data-unit-toggle></button>
+       
        <label for="fah">°F</label>
        <input type="radio" id="fah" name="unit">
      </div> 
@@ -80,9 +81,138 @@
      to .previous-weather div -->
      <button for="weather-toggle" class="show-previous-weather"><span>&#8593;</span> <span class="sr-only">Show previous weather</span></button>
 
-     <h2 class="main-title previous-weather__title">Previous 7 days</h2> 
+     <h2 class="main-title previous-weather__title">7 DIAS ANTERIORES </h2> 
 
-     <div class="previous-days" data-previous-sols></div>
+     <div class="previous-days" data-previous-sols>
+
+      <div class="previous-day">
+        <h3 class="previous-day__sol">
+          Sol
+          <span data-sol></span>
+        </h3>
+        <p class="previous-day__date" data-date></p>
+        <p class="previous-day__temp">
+          Max:
+          <span data-temp-high></span>
+          °<span data-temp-unit></span>
+        </p>
+        <p class="previous-day__temp">
+          Min:
+          <span data-temp-low></span>
+          °<span data-temp-unit></span>
+        </p>
+        <button class="previous-day__more-info" data-select-button>mas info</button>
+      </div>
+      <div class="previous-day">
+        <h3 class="previous-day__sol">
+          Sol
+          <span data-sol></span>
+        </h3>
+        <p class="previous-day__date" data-date></p>
+        <p class="previous-day__temp">
+          Max:
+          <span data-temp-high></span>
+          °<span data-temp-unit></span>
+        </p>
+        <p class="previous-day__temp">
+          Min:
+          <span data-temp-low></span>
+          °<span data-temp-unit></span>
+        </p>
+        <button class="previous-day__more-info" data-select-button>mas info</button>
+      </div>
+      <div class="previous-day">
+        <h3 class="previous-day__sol">
+          Sol
+          <span data-sol></span>
+        </h3>
+        <p class="previous-day__date" data-date></p>
+        <p class="previous-day__temp">
+          Max:
+          <span data-temp-high></span>
+          °<span data-temp-unit></span>
+        </p>
+        <p class="previous-day__temp">
+          Min:
+          <span data-temp-low></span>
+          °<span data-temp-unit></span>
+        </p>
+        <button class="previous-day__more-info" data-select-button>mas info</button>
+      </div>
+      <div class="previous-day">
+        <h3 class="previous-day__sol">
+          Sol
+          <span data-sol></span>
+        </h3>
+        <p class="previous-day__date" data-date></p>
+        <p class="previous-day__temp">
+          Max:
+          <span data-temp-high></span>
+          °<span data-temp-unit></span>
+        </p>
+        <p class="previous-day__temp">
+          Min:
+          <span data-temp-low></span>
+          °<span data-temp-unit></span>
+        </p>
+        <button class="previous-day__more-info" data-select-button>mas info</button>
+      </div>
+      <div class="previous-day">
+        <h3 class="previous-day__sol">
+          Sol
+          <span data-sol></span>
+        </h3>
+        <p class="previous-day__date" data-date></p>
+        <p class="previous-day__temp">
+          Max:
+          <span data-temp-high></span>
+          °<span data-temp-unit></span>
+        </p>
+        <p class="previous-day__temp">
+          Min:
+          <span data-temp-low></span>
+          °<span data-temp-unit></span>
+        </p>
+        <button class="previous-day__more-info" data-select-button>mas info</button>
+      </div>
+      <div class="previous-day">
+        <h3 class="previous-day__sol">
+          Sol
+          <span data-sol></span>
+        </h3>
+        <p class="previous-day__date" data-date></p>
+        <p class="previous-day__temp">
+          Max:
+          <span data-temp-high></span>
+          °<span data-temp-unit></span>
+        </p>
+        <p class="previous-day__temp">
+          Min:
+          <span data-temp-low></span>
+          °<span data-temp-unit></span>
+        </p>
+        <button class="previous-day__more-info" data-select-button>mas info</button>
+      </div>
+      <div class="previous-day">
+        <h3 class="previous-day__sol">
+          Sol
+          <span data-sol></span>
+        </h3>
+        <p class="previous-day__date" data-date></p>
+        <p class="previous-day__temp">
+          Max:
+          <span data-temp-high></span>
+          °<span data-temp-unit></span>
+        </p>
+        <p class="previous-day__temp">
+          Min:
+          <span data-temp-low></span>
+          °<span data-temp-unit></span>
+        </p>
+        <button class="previous-day__more-info" data-select-button>mas info</button>
+      </div>
+
+     </div>
    </div>
 
    <template data-previous-sol-template>

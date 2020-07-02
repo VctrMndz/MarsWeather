@@ -203,6 +203,10 @@ a {
 			margin-left: auto;
 			width: 1rem;
 		}
+
+		&:focus {
+			outline: none;
+		}
 	}
 }
 

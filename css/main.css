@@ -241,6 +241,10 @@ a:hover {
   width: 1rem;
 }
 
+.unit__toggle:focus {
+  outline: none;
+}
+
 :checked ~ .unit__toggle::after {
   margin-left: 3px;
 }
